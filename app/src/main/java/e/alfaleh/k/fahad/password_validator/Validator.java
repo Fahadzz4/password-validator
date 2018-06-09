@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class Validator {
 //some code was taken from https://stackoverflow.com/questions/36097097/password-validate-8-digits-contains-upper-lowercase-and-a-special-character
-    public int valid(String t){
+    public static int valid(String t){
         Pattern specailCharPatten = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
         Pattern UpperCasePatten = Pattern.compile("[A-Z]");
         Pattern digitCasePatten = Pattern.compile("[0-9 ]");
@@ -14,7 +14,7 @@ public class Validator {
         if(t.length()>=8)
             strength++;
 
-        if(!t.equals("password"))
+        if(!t.toLowerCase().equals("password"))
             strength++;
 
         if (specailCharPatten.matcher(t).find())
